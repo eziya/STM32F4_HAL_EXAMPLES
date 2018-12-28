@@ -59,6 +59,31 @@ void NMI_Handler(void)
 }
 
 /**
+* @brief This function handles Hard fault interrupt.
+*/
+void HardFault_Handler(void)
+{
+  /* USER CODE BEGIN HardFault_IRQn 0 */
+  /* 레지스터 값들을 확인할 수 있도록 FaultHandler 함수에 파라미터로 전달 */
+  asm (
+        "TST LR, #4 \n"
+        "ITE EQ \n"
+        "MRSEQ R0, MSP \n"
+        "MRSNE R0, PSP \n"
+        "B FaultHandler");
+
+  /* USER CODE END HardFault_IRQn 0 */
+  while (1)
+  {
+    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+    /* USER CODE END W1_HardFault_IRQn 0 */
+  }
+  /* USER CODE BEGIN HardFault_IRQn 1 */
+
+  /* USER CODE END HardFault_IRQn 1 */
+}
+
+/**
 * @brief This function handles Memory management fault.
 */
 void MemManage_Handler(void)
@@ -172,31 +197,6 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
-
-/**
-* @brief This function handles Hard fault interrupt.
-*/
-void HardFault_Handler(void)
-{
-  /* USER CODE BEGIN HardFault_IRQn 0 */
-  /* 레지스터 값들을 확인할 수 있도록 FaultHandler 함수에 파라미터로 전달 */
-  asm (
-        "TST LR, #4 \n"
-        "ITE EQ \n"
-        "MRSEQ R0, MSP \n"
-        "MRSNE R0, PSP \n"
-        "B FaultHandler");
-
-  /* USER CODE END HardFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-    /* USER CODE END W1_HardFault_IRQn 0 */
-  }
-  /* USER CODE BEGIN HardFault_IRQn 1 */
-
-  /* USER CODE END HardFault_IRQn 1 */
-}
 
 /**
 * @brief This function handles EXTI line0 interrupt.
