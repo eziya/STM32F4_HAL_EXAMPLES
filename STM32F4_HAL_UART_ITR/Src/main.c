@@ -41,27 +41,26 @@
 #include "stm32f4xx_hal.h"
 
 /* USER CODE BEGIN Includes */
+#include "stdlib.h"
 #include "string.h"
-#include "circular_buffer.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
-UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 uint8_t msg[MSG_SIZE];
 uint32_t msgCount = 0;
-
-uint8_t *cBuffer;
-cbuf_handle_t  cBufHandle;
+bool msgFlag = false;
+uint32_t noRESCount = 0;
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_USART1_UART_Init(void);
+static void MX_USART2_UART_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -69,59 +68,52 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-void HandleCircularBuffer()
+void SendREQ()
 {
-  uint8_t data, data2;
+  uint8_t req[3] = {0xAA, 0xBB, 0xCC};
+  HAL_UART_Receive_IT(&huart2, msg, MSG_SIZE);
+  HAL_UART_Transmit(&huart2, req, sizeof(req), HAL_MAX_DELAY);
+}
 
-  /* 현재 수신된 메시지의 크기가 MSG_SIZE 미만이면 리턴 */
-  if(circular_buf_size(cBufHandle) < MSG_SIZE) return;
-
-  /* 첫 바이트 확인 */
-  circular_buf_get(cBufHandle, &data);
-
-  if(data != 0x00)
+void RcvRES()
+{
+  if(msgFlag)
   {
-    /* 첫 바이트가 0x00 이 아닌 경우 0xFF 를 만날때 까지 때까지 빼낸다. */
-    while(true)
-    {
-      circular_buf_get(cBufHandle, &data2);
-      if(data2 == 0xFF) break;
-      if(circular_buf_empty(cBufHandle)) break;
-    }
-  }
-  else
-  {
-    bool check = true;
+    msgFlag = false;
+    noRESCount = 0;
 
-    /* 두번째 바이트부터 포함해서 MSG 사이즈 만큼 빼낸다. */
-    for(int i = 1; i < MSG_SIZE; i++)
+    if(msg[0] == 0x00 && msg[MSG_SIZE-1] == 0xFF)
     {
-      circular_buf_get(cBufHandle, &data2);
-
-      /* 두번째 바이트 부터 빼내기 때문에 1만큼 작다 */
-      if((i % 256) != data2)
-      {
-        /* 에러 처리 한다. */
-        check = false;
-        //break;
-      }
-    }
-
-    if(check)
-    {
-      /* 정상 완료 시 LED Toggle + 에러 LED Off */
       msgCount++;
-      HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
+
+      /* Turn Off Error LED */
       HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
+      /* Toggle RCV LED */
+      HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
     }
     else
     {
+      /* Turn On Error LED */
       HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
     }
-  }
-  HAL_UART_Receive_IT(&huart1, msg, MSG_SIZE);
-}
 
+    SendREQ();
+  }
+  else
+  {
+    /* Slave 쪽이 Reset 된 경우 장기간 데이터가 수신되지 않으면 기존 동작을 취소하고 다시 SendREQ 를 수행한다. */
+    noRESCount++;
+    if(noRESCount > 500000)
+    {
+      noRESCount = 0;
+
+      HAL_UART_AbortReceive_IT(&huart2);
+      HAL_UART_AbortTransmit(&huart2);
+
+      SendREQ();
+    }
+  }
+}
 /* USER CODE END 0 */
 
 /**
@@ -153,13 +145,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART1_UART_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
-  cBuffer = malloc(BUF_SIZE * MSG_SIZE);
-  cBufHandle = circular_buf_init(cBuffer, (BUF_SIZE * MSG_SIZE));
-
-  HAL_UART_Receive_IT(&huart1, msg, MSG_SIZE);
+  SendREQ();
 
   /* USER CODE END 2 */
 
@@ -171,12 +159,8 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-    HandleCircularBuffer();
+    RcvRES();
   }
-
-  free(cBuffer);
-  circular_buf_free(cBufHandle);
-
   /* USER CODE END 3 */
 
 }
@@ -238,19 +222,19 @@ void SystemClock_Config(void)
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 
-/* USART1 init function */
-static void MX_USART1_UART_Init(void)
+/* USART2 init function */
+static void MX_USART2_UART_Init(void)
 {
 
-  huart1.Instance = USART1;
-  huart1.Init.BaudRate = 921600;
-  huart1.Init.WordLength = UART_WORDLENGTH_8B;
-  huart1.Init.StopBits = UART_STOPBITS_1;
-  huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Mode = UART_MODE_TX_RX;
-  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-  if (HAL_UART_Init(&huart1) != HAL_OK)
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 921600;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -272,8 +256,8 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
