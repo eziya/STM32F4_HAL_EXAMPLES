@@ -45,8 +45,7 @@
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
-TIM_HandleTypeDef htim3;
-TIM_HandleTypeDef htim4;
+ADC_HandleTypeDef hadc1;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
@@ -56,11 +55,7 @@ TIM_HandleTypeDef htim4;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_TIM3_Init(void);
-static void MX_TIM4_Init(void);
-                                    
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-                                
+static void MX_ADC1_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -68,9 +63,9 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-#define ONE_ROTATION_PULSES 2100
-uint16_t cnt1, cnt2, diff, speed, dir;
-uint32_t tick;
+uint16_t value;
+uint16_t vout;
+float temp;
 
 /* USER CODE END 0 */
 
@@ -103,17 +98,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM3_Init();
-  MX_TIM4_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
-  HAL_TIM_OC_Start(&htim4, TIM_CHANNEL_1);
-  HAL_TIM_OC_Start(&htim4, TIM_CHANNEL_2);
 
-
-  /* 현재 카운터와 Tick 값 */
-  cnt1 = TIM3->CNT;
-  tick = HAL_GetTick();
 
   /* USER CODE END 2 */
 
@@ -125,54 +112,15 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-    if(HAL_GetTick() - tick > 1000L)
-    {
-      /* 1초마다 TIM3 카운터 증가 확인 */
-      cnt2 = TIM3->CNT;
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    value = HAL_ADC_GetValue(&hadc1);
+    HAL_ADC_Stop(&hadc1);
 
-      /* 회전 방향 확인 */
-      if(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3))
-      {
-        dir = 1;
+    vout = 3000 * value / 4096;
+    temp = (float)vout / 10.0;
 
-        /* __HAL_TIM_IS_TIM_COUNTING_DOWN 매크로가 방향성을 잘못 알려주는 경우 예외처리 */
-        if((cnt2 > cnt1) && (cnt2 - cnt1 < 100)) dir = 0;
-      }
-      else
-      {
-        dir = 0;
-
-        /* __HAL_TIM_IS_TIM_COUNTING_DOWN 매크로가 방향성을 잘못 알려주는 경우 예외처리 */
-        if((cnt1 > cnt2) && (cnt1 - cnt2 < 100)) dir = 1;
-      }
-
-      if(dir)
-      {
-        /* Down Counting 방향으로 회전할 때 */
-        if(cnt1 >= cnt2) diff = cnt1 - cnt2;
-        else diff = (TIM3->ARR + cnt1) - cnt2 ;
-      }
-      else
-      {
-        /* Up Counting 방향으로 회전할 때 */
-        if(cnt2 >= cnt1) diff = cnt2 - cnt1;
-        else diff = (TIM3->ARR + cnt2) - cnt1 ;
-      }
-
-      if((TIM3->SMCR & 0x03) == 0x03)
-      {
-        /* X4 Mode 일때는 카운터가 4 증가할 때, 1개의 Pulse */
-        speed = diff * 60 / 4 / ONE_ROTATION_PULSES; //RPM 계산을 위해서는 x 60
-      }
-      else
-      {
-        /* X4 Mode 일때는 카운터가 2 증가할 때, 1개의 Pulse */
-        speed = diff * 60 / 2 / ONE_ROTATION_PULSES; //RPM 계산을 위해서는 x 60
-      }
-
-      tick = HAL_GetTick();
-      cnt1 = TIM3->CNT;
-    }
+    HAL_Delay(100);
   }
   /* USER CODE END 3 */
 
@@ -235,93 +183,40 @@ void SystemClock_Config(void)
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 
-/* TIM3 init function */
-static void MX_TIM3_Init(void)
+/* ADC1 init function */
+static void MX_ADC1_Init(void)
 {
 
-  TIM_Encoder_InitTypeDef sConfig;
-  TIM_MasterConfigTypeDef sMasterConfig;
+  ADC_ChannelConfTypeDef sConfig;
 
-  htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
-  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 65535;
-  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
-  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
-  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
-  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
-  sConfig.IC1Filter = 0;
-  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
-  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
-  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
-  sConfig.IC2Filter = 0;
-  if (HAL_TIM_Encoder_Init(&htim3, &sConfig) != HAL_OK)
+    /**Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion) 
+    */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.ScanConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+    */
+  sConfig.Channel = ADC_CHANNEL_1;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
-
-}
-
-/* TIM4 init function */
-static void MX_TIM4_Init(void)
-{
-
-  TIM_ClockConfigTypeDef sClockSourceConfig;
-  TIM_MasterConfigTypeDef sMasterConfig;
-  TIM_OC_InitTypeDef sConfigOC;
-
-  htim4.Instance = TIM4;
-  htim4.Init.Prescaler = 4199;
-  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 9999;
-  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  if (HAL_TIM_OC_Init(&htim4) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  sConfigOC.OCMode = TIM_OCMODE_TOGGLE;
-  sConfigOC.Pulse = 9999;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_OC_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  sConfigOC.Pulse = 4999;
-  if (HAL_TIM_OC_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  HAL_TIM_MspPostInit(&htim4);
 
 }
 
@@ -337,8 +232,7 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOH_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
 
 }
 
