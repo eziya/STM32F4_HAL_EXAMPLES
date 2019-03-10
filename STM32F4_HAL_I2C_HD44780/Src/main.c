@@ -123,6 +123,19 @@ int main(void)
   /* Blink cursor */
   HD44780_Blink();
 
+  /* Scroll Right */
+  for(int i = 0; i < 3; i++)
+  {
+    HD44780_ScrollDisplayRight();
+    HAL_Delay(1000);
+  }
+
+  /* Scroll Left */
+  for(int i = 0; i < 3; i++)
+  {
+    HD44780_ScrollDisplayLeft();
+    HAL_Delay(1000);
+  }
 
   /* USER CODE END 2 */
 
