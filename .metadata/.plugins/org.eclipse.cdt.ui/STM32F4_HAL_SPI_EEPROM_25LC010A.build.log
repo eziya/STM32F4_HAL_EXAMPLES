@@ -1,0 +1,18 @@
+00:26:28 **** Incremental Build of configuration Debug for project STM32F4_HAL_SPI_EEPROM_25LC010A ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Src\25lc010a.o ..\Src\25lc010a.c 
+arm-atollic-eabi-gcc -o STM32F4_HAL_SPI_EEPROM_25LC010A.elf Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_cortex.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma_ex.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash_ex.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_flash_ramfunc.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_gpio.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr_ex.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_spi.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim_ex.o Src\25lc010a.o Src\main.o Src\stm32f4xx_hal_msp.o Src\stm32f4xx_it.o Src\system_stm32f4xx.o startup\startup_stm32f407xx.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../STM32F407VG_FLASH.ld -specs=nosys.specs -static -Wl,-Map=STM32F4_HAL_SPI_EEPROM_25LC010A.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.2.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.2.0\Tools\arm-atollic-reports.jar sizeinfo list STM32F4_HAL_SPI_EEPROM_25LC010A.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   9620	     24	   1700	  11344	   2c50	STM32F4_HAL_SPI_EEPROM_25LC010A.elf
+Print size information done
+Generate listing file
+Output sent to: STM32F4_HAL_SPI_EEPROM_25LC010A.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex STM32F4_HAL_SPI_EEPROM_25LC010A.elf STM32F4_HAL_SPI_EEPROM_25LC010A.hex 
+
+00:26:29 Build Finished (took 1s.13ms)
+

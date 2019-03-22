@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="자원 &apos;STM32F4_HAL_SPI_MAX7219/Src/max7219.c&apos;을(를) &apos;max7219_matrix.c&apos;(으)로 이름 바꾸기" description="&apos;max7219.c&apos; 자원 이름 바꾸기" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/max7219.c" name="max7219_matrix.c" stamp="1553247204483" updateReferences="true"/>&#x0A;<refactoring comment="자원 &apos;STM32F4_HAL_SPI_MAX7219/Src/max7219.h&apos;을(를) &apos;max7219_matrix.h&apos;(으)로 이름 바꾸기" description="&apos;max7219.h&apos; 자원 이름 바꾸기" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/max7219.h" name="max7219_matrix.h" stamp="1553247212680" updateReferences="true"/>
+</session>
