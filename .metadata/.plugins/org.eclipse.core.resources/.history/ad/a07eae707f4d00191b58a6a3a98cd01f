@@ -124,8 +124,6 @@ bool EEPROM_EraseAll(void)
 		HAL_Delay(5);
 		address += EEPROM_PAGE_SIZE;
 	}
-
-	return true;
 }
 
 static void SS_Select()

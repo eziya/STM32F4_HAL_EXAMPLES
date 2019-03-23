@@ -35,10 +35,10 @@ bool EEPROM_ReadByte(uint8_t address, uint8_t* ret)
 {
 	uint8_t data[2] = {EEPROM_CMD_READ, address};
 
-	SS_Select();
+	EEPROM_Select();
 	if(HAL_SPI_Transmit(EEPROM_SPI, data, sizeof(data), HAL_MAX_DELAY) != HAL_OK) return false;
 	if(HAL_SPI_Receive(EEPROM_SPI, ret, 1, HAL_MAX_DELAY) != HAL_OK) return false;
-	SS_Deselect();
+	EEPROM_Deselect();
 
 	return true;
 }
@@ -58,9 +58,9 @@ bool EEPROM_WriteByte(uint8_t address, uint8_t data)
 	uint8_t buffer[3] = {EEPROM_CMD_WRITE, address, data};
 
 	if(!EEPROM_WriteEnable()) return false;
-	SS_Select();
+	EEPROM_Select();
 	if(HAL_SPI_Transmit(EEPROM_SPI, buffer, sizeof(buffer), HAL_MAX_DELAY) != HAL_OK) return false;
-	SS_Deselect();
+	EEPROM_Deselect();
 
 	/* Wait write cycle time 5ms */
 	HAL_Delay(5);
@@ -73,7 +73,7 @@ bool EEPROM_WriteBuffer(uint8_t address, uint8_t *buffer, uint8_t length)
 	uint8_t data[2] = {EEPROM_CMD_WRITE, address};
 
 	if(!EEPROM_WriteEnable()) return false;
-	SS_Select();
+	EEPROM_Select();
 	if(HAL_SPI_Transmit(EEPROM_SPI, data, sizeof(data), HAL_MAX_DELAY) != HAL_OK) return false;
 
 	for(uint8_t i = 0; i < length; i++)
@@ -81,11 +81,11 @@ bool EEPROM_WriteBuffer(uint8_t address, uint8_t *buffer, uint8_t length)
 		/* Handle Paging */
 		if( (address+i) % EEPROM_PAGE_SIZE == 0 && i != 0 )
 		{
-			SS_Deselect();
+			EEPROM_Deselect();
 			HAL_Delay(5);
 
 			if(!EEPROM_WriteEnable()) return false;
-			SS_Select();
+			EEPROM_Select();
 			data[1] = address + i;
 			if(HAL_SPI_Transmit(EEPROM_SPI, data, sizeof(data), HAL_MAX_DELAY) != HAL_OK) return false;
 		}
@@ -93,7 +93,7 @@ bool EEPROM_WriteBuffer(uint8_t address, uint8_t *buffer, uint8_t length)
 		if(HAL_SPI_Transmit(EEPROM_SPI, &buffer[i], 1, HAL_MAX_DELAY) != HAL_OK) return false;
 	}
 
-	SS_Deselect();
+	EEPROM_Deselect();
 
 	/* Wait write cycle time 5ms */
 	HAL_Delay(5);
@@ -110,7 +110,7 @@ bool EEPROM_EraseAll(void)
 
 	while(address < EEPROM_TOTAL_SIZE)
 	{
-		SS_Select();
+		EEPROM_Select();
 		if(HAL_SPI_Transmit(EEPROM_SPI, data, sizeof(data), HAL_MAX_DELAY) != HAL_OK) return false;
 
 		for(uint8_t i=0; i < EEPROM_PAGE_SIZE; i++)
@@ -118,24 +118,22 @@ bool EEPROM_EraseAll(void)
 			if(HAL_SPI_Transmit(EEPROM_SPI, &data[1], 1, HAL_MAX_DELAY) != HAL_OK) return false;
 		}
 
-		SS_Deselect();
+		EEPROM_Deselect();
 
 		/* Wait write cycle time 5ms */
 		HAL_Delay(5);
 		address += EEPROM_PAGE_SIZE;
 	}
-
-	return true;
 }
 
-static void SS_Select()
+static void EEPROM_Select()
 {
-	HAL_GPIO_WritePin(EEPROM_SS_Port, EEPROM_SS_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(EEPROM_CS_Port, EEPROM_CS_Pin, GPIO_PIN_RESET);
 	HAL_Delay(1);
 }
 
-static void SS_Deselect()
+static void EEPROM_Deselect()
 {
-	HAL_GPIO_WritePin(EEPROM_SS_Port, EEPROM_SS_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(EEPROM_CS_Port, EEPROM_CS_Pin, GPIO_PIN_SET);
 	HAL_Delay(1);
 }

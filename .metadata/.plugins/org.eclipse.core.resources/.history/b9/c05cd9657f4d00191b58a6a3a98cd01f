@@ -124,8 +124,6 @@ bool EEPROM_EraseAll(void)
 		HAL_Delay(5);
 		address += EEPROM_PAGE_SIZE;
 	}
-
-	return true;
 }
 
 static void SS_Select()
@@ -134,7 +132,7 @@ static void SS_Select()
 	HAL_Delay(1);
 }
 
-static void SS_Deselect()
+static void SS_Select()
 {
 	HAL_GPIO_WritePin(EEPROM_SS_Port, EEPROM_SS_Pin, GPIO_PIN_SET);
 	HAL_Delay(1);

@@ -28,6 +28,9 @@ bool EEPROM_WriteEnable(void)
 	if(HAL_SPI_Transmit(EEPROM_SPI, &data, 1, HAL_MAX_DELAY) != HAL_OK) return false;
 	SS_Deselect();
 
+	/* Wait write cycle time 5ms */
+	HAL_Delay(5);
+
 	return true;
 }
 
