@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="자원 &apos;STM32F4_HAL_SPI_SSD1306_OLED/Src/SSD1306&apos;을(를) &apos;OLED&apos;(으)로 이름 바꾸기" description="&apos;SSD1306&apos; 자원 이름 바꾸기" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/SSD1306" name="OLED" stamp="1553427229945" updateReferences="true"/>
+</session>

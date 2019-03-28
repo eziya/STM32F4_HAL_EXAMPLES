@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="SPI_Tx" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="MAX7219_Tx"/>
+			<item value="Max7219_CS_Pin"/>
+			<item value="Max7219_CS_Port"/>
+			<item value="MAX7219_Deselect"/>
+			<item value="MAX7219_Select"/>
+			<item value="u8g_com_arm_stm32_ssd_i2c_fn"/>
+		</list>
+		<list key="replacehistory">
+			<item value="SPI_Tx"/>
+			<item value="Max7219_SS_Pin"/>
+			<item value="Max7219_SS_Port"/>
+			<item value="SS_Deselect"/>
+			<item value="SS_Select"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="316" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="391" key="DIALOG_HEIGHT"/>
+		<item value="810" key="DIALOG_X_ORIGIN"/>
+		<item value="328" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

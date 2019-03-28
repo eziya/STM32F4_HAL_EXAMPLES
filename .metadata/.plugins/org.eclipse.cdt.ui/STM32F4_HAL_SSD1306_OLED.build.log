@@ -1,0 +1,198 @@
+21:44:21 **** Incremental Build of configuration Debug for project STM32F4_HAL_SSD1306_OLED ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma.o ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.o ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.o ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.c 
+arm-atollic-eabi-g++ -c ..\Src\OLED\OLEDDisplayUi.cpp -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -D__weak=__attribute__((weak)) -DSTM32F407xx -DUSE_HAL_DRIVER -D__packed=__attribute__((__packed__)) -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -g -fstack-usage -Wall -fno-threadsafe-statics -o Src\OLED\OLEDDisplayUi.o 
+In file included from ..\Src\OLED\OLEDDisplayUi.h:35:0,
+                 from ..\Src\OLED\OLEDDisplayUi.cpp:31:
+..\Src\OLED\OLEDDisplay.h:116:34: error: expected class-name before '{' token
+ class OLEDDisplay : public Print {
+                                  ^
+..\Src\OLED\OLEDDisplay.h:180:43: error: 'String' has not been declared
+     void drawString(int16_t x, int16_t y, String text);
+                                           ^~~~~~
+..\Src\OLED\OLEDDisplay.h:185:74: error: 'String' has not been declared
+     void drawStringMaxWidth(int16_t x, int16_t y, uint16_t maxLineWidth, String text);
+                                                                          ^~~~~~
+..\Src\OLED\OLEDDisplay.h:192:29: error: 'String' has not been declared
+     uint16_t getStringWidth(String text);
+                             ^~~~~~
+..\Src\OLED\OLEDDisplay.h:269:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     OLEDDISPLAY_GEOMETRY geometry              = GEOMETRY_128_64;
+                                                  ^~~~~~~~~~~~~~~
+..\Src\OLED\OLEDDisplay.h:271:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint16_t  displayWidth                     = 128;
+                                                  ^~~
+..\Src\OLED\OLEDDisplay.h:272:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint16_t  displayHeight                    = 64;
+                                                  ^~
+..\Src\OLED\OLEDDisplay.h:273:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint16_t  displayBufferSize                = 1024;
+                                                  ^~~~
+..\Src\OLED\OLEDDisplay.h:278:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     OLEDDISPLAY_TEXT_ALIGNMENT   textAlignment = TEXT_ALIGN_LEFT;
+                                                  ^~~~~~~~~~~~~~~
+..\Src\OLED\OLEDDisplay.h:279:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     OLEDDISPLAY_COLOR            color         = WHITE;
+                                                  ^~~~~
+..\Src\OLED\OLEDDisplay.h:281:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     const uint8_t          *fontData     = ArialMT_Plain_10;
+                                            ^~~~~~~~~~~~~~~~
+..\Src\OLED\OLEDDisplay.h:284:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint16_t   logBufferSize                   = 0;
+                                                  ^
+..\Src\OLED\OLEDDisplay.h:285:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint16_t   logBufferFilled                 = 0;
+                                                  ^
+..\Src\OLED\OLEDDisplay.h:286:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint16_t   logBufferLine                   = 0;
+                                                  ^
+..\Src\OLED\OLEDDisplay.h:287:50: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint16_t   logBufferMaxLines               = 0;
+                                                  ^
+..\Src\OLED\OLEDDisplay.h:300:11: error: expected ';' at end of member declaration
+     char* utf8ascii(String s);
+           ^~~~~~~~~
+..\Src\OLED\OLEDDisplay.h:300:28: error: expected ')' before 's'
+     char* utf8ascii(String s);
+                            ^
+In file included from ..\Src\OLED\OLEDDisplayUi.h:35:0,
+                 from ..\Src\OLED\OLEDDisplayUi.cpp:31:
+..\Src\OLED\OLEDDisplay.h:326:5: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     };
+     ^
+..\Src\OLED\OLEDDisplay.h:308:64: error: 'byte' does not name a type
+     FontTableLookupFunction fontTableLookupFunction = [](const byte ch) {
+                                                                ^~~~
+..\Src\OLED\OLEDDisplay.h:326:5: error: expected ',' or '...' at end of input
+     };
+     ^
+..\Src\OLED\OLEDDisplay.h:326:5: error: expected ')' at end of input
+..\Src\OLED\OLEDDisplay.h: In lambda function:
+..\Src\OLED\OLEDDisplay.h:326:5: error: expected '{' at end of input
+..\Src\OLED\OLEDDisplay.h: At global scope:
+..\Src\OLED\OLEDDisplay.h:326:5: warning: lambda expressions only available with -std=c++11 or -std=gnu++11
+..\Src\OLED\OLEDDisplay.h:326:5: error: invalid user-defined conversion from 'OLEDDisplay::<lambda(int)>' to 'FontTableLookupFunction {aka unsigned char (*)(unsigned char)}' [-fpermissive]
+..\Src\OLED\OLEDDisplay.h:326:5: note: candidate is: OLEDDisplay::<lambda(int)>::operator void (*)(int)() const <near match>
+..\Src\OLED\OLEDDisplay.h:326:5: note:   no known conversion from 'void (*)(int)' to 'FontTableLookupFunction {aka unsigned char (*)(unsigned char)}'
+In file included from ..\Src\OLED\OLEDDisplayUi.cpp:31:0:
+..\Src\OLED\OLEDDisplayUi.h:68:40: error: expected initializer before 'PROGMEM'
+ const uint8_t ANIMATION_activeSymbol[] PROGMEM = {
+                                        ^~~~~~~
+..\Src\OLED\OLEDDisplayUi.h:72:42: error: expected initializer before 'PROGMEM'
+ const uint8_t ANIMATION_inactiveSymbol[] PROGMEM = {
+                                          ^~~~~~~
+..\Src\OLED\OLEDDisplayUi.h:79:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   uint64_t     lastUpdate                = 0;
+                                            ^
+..\Src\OLED\OLEDDisplayUi.h:80:45: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   uint16_t      ticksSinceLastStateSwitch = 0;
+                                             ^
+..\Src\OLED\OLEDDisplayUi.h:82:45: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   FrameState    frameState                = FIXED;
+                                             ^~~~~
+..\Src\OLED\OLEDDisplayUi.h:83:45: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   uint8_t       currentFrame              = 0;
+                                             ^
+..\Src\OLED\OLEDDisplayUi.h:85:45: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   bool          isIndicatorDrawen         = true;
+                                             ^~~~
+..\Src\OLED\OLEDDisplayUi.h:88:45: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   int8_t        frameTransitionDirection  = 1;
+                                             ^
+..\Src\OLED\OLEDDisplayUi.h:90:45: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   bool          manuelControll            = false;
+                                             ^~~~~
+..\Src\OLED\OLEDDisplayUi.h:110:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     IndicatorPosition   indicatorPosition         = BOTTOM;
+                                                     ^~~~~~
+..\Src\OLED\OLEDDisplayUi.h:111:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     IndicatorDirection  indicatorDirection        = LEFT_RIGHT;
+                                                     ^~~~~~~~~~
+..\Src\OLED\OLEDDisplayUi.h:113:56: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     const uint8_t*         activeSymbol              = ANIMATION_activeSymbol;
+                                                        ^~~~~~~~~~~~~~~~~~~~~~
+..\Src\OLED\OLEDDisplayUi.h:114:56: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     const uint8_t*         inactiveSymbol            = ANIMATION_inactiveSymbol;
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+..\Src\OLED\OLEDDisplayUi.h:116:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     bool                shouldDrawIndicators      = true;
+                                                     ^~~~
+..\Src\OLED\OLEDDisplayUi.h:119:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     AnimationDirection  frameAnimationDirection   = SLIDE_RIGHT;
+                                                     ^~~~~~~~~~~
+..\Src\OLED\OLEDDisplayUi.h:121:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     int8_t              lastTransitionDirection   = 1;
+                                                     ^
+..\Src\OLED\OLEDDisplayUi.h:123:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint16_t            ticksPerFrame             = 151; // ~ 5000ms at 30 FPS
+                                                     ^~~
+..\Src\OLED\OLEDDisplayUi.h:124:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint16_t            ticksPerTransition        = 15;  // ~  500ms at 30 FPS
+                                                     ^~
+..\Src\OLED\OLEDDisplayUi.h:126:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     bool                autoTransition            = true;
+                                                     ^~~~
+..\Src\OLED\OLEDDisplayUi.h:129:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint8_t             frameCount                = 0;
+                                                     ^
+..\Src\OLED\OLEDDisplayUi.h:132:54: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     int8_t              nextFrameNumber           = -1;
+                                                      ^
+..\Src\OLED\OLEDDisplayUi.h:136:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint8_t             overlayCount              = 0;
+                                                     ^
+..\Src\OLED\OLEDDisplayUi.h:143:56: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint8_t                indicatorDrawState        = 1;
+                                                        ^
+..\Src\OLED\OLEDDisplayUi.h:151:5: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     };
+     ^
+..\Src\OLED\OLEDDisplayUi.h:157:53: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     uint8_t             updateInterval            = 33;
+                                                     ^~
+..\Src\OLED\OLEDDisplayUi.h:113:56: error: 'ANIMATION_activeSymbol' was not declared in this scope
+     const uint8_t*         activeSymbol              = ANIMATION_activeSymbol;
+                                                        ^~~~~~~~~~~~~~~~~~~~~~
+..\Src\OLED\OLEDDisplayUi.h:114:56: error: 'ANIMATION_inactiveSymbol' was not declared in this scope
+     const uint8_t*         inactiveSymbol            = ANIMATION_inactiveSymbol;
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+..\Src\OLED\OLEDDisplayUi.h: In lambda function:
+..\Src\OLED\OLEDDisplayUi.h:149:42: error: invalid conversion from 'const char*' to 'int' [-fpermissive]
+       display->drawString(64, 18, stage->process);
+                                   ~~~~~~~^~~~~~~
+In file included from ..\Src\OLED\OLEDDisplayUi.h:35:0,
+                 from ..\Src\OLED\OLEDDisplayUi.cpp:31:
+..\Src\OLED\OLEDDisplay.h:180:10: note:   initializing argument 3 of 'void OLEDDisplay::drawString(int16_t, int16_t, int)'
+     void drawString(int16_t x, int16_t y, String text);
+          ^~~~~~~~~~
+In file included from ..\Src\OLED\OLEDDisplayUi.cpp:31:0:
+..\Src\OLED\OLEDDisplayUi.h: At global scope:
+..\Src\OLED\OLEDDisplayUi.h:151:5: warning: lambda expressions only available with -std=c++11 or -std=gnu++11
+     };
+     ^
+..\Src\OLED\OLEDDisplayUi.cpp: In member function 'void OLEDDisplayUi::runLoadingProcess(LoadingStage*, uint8_t)':
+..\Src\OLED\OLEDDisplayUi.cpp:139:11: error: 'yield' was not declared in this scope
+     yield();
+           ^
+..\Src\OLED\OLEDDisplayUi.cpp:146:12: error: 'delay' was not declared in this scope
+   delay(150);
+            ^
+..\Src\OLED\OLEDDisplayUi.cpp: In member function 'int8_t OLEDDisplayUi::update()':
+..\Src\OLED\OLEDDisplayUi.cpp:197:37: error: 'millis' was not declared in this scope
+   unsigned long frameStart = millis();
+                                     ^
+..\Src\OLED\OLEDDisplayUi.cpp:201:142: error: 'ceil' was not declared in this scope
+     if (this->autoTransition && this->state.lastUpdate != 0) this->state.ticksSinceLastStateSwitch += ceil(-timeBudget / this->updateInterval);
+                                                                                                                                              ^
+..\Src\OLED\OLEDDisplayUi.cpp: In member function 'void OLEDDisplayUi::drawIndicator()':
+..\Src\OLED\OLEDDisplayUi.cpp:381:10: error: 'byte' was not declared in this scope
+     for (byte i = 0; i < this->frameCount; i++) {
+          ^~~~
+..\Src\OLED\OLEDDisplayUi.cpp:381:22: error: 'i' was not declared in this scope
+     for (byte i = 0; i < this->frameCount; i++) {
+                      ^
+
+21:44:22 Build Finished (took 1s.214ms)
+

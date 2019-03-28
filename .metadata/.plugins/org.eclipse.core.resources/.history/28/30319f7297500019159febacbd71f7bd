@@ -1,0 +1,100 @@
+/*
+ * u8g2_stm32f4.c
+ *
+ *  Created on: 2019. 3. 27.
+ *      Author: KIKI
+ */
+
+#include "main.h"
+#include "stm32f4xx_hal.h"
+
+uint8_t u8x8_stm32_gpio_and_delay(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+{
+	switch(msg)
+	{
+	case U8X8_MSG_GPIO_AND_DELAY_INIT:	// called once during init phase of u8g2/u8x8
+		HAL_Delay(1);
+		break;							// can be used to setup pins
+	case U8X8_MSG_GPIO_CS:				// CS (chip select) pin: Output level in arg_int
+		HAL_GPIO_WritePin(OLED_CS_GPIO_Port, OLED_CS_Pin, arg_int);
+		break;
+	case U8X8_MSG_GPIO_DC:				// DC (data/cmd, A0, register select) pin: Output level in arg_int
+		HAL_GPIO_WritePin(OLED_DC_GPIO_Port, OLED_DC_Pin, arg_int);
+		break;
+	case U8X8_MSG_GPIO_RESET:			// Reset pin: Output level in arg_int
+		HAL_GPIO_WritePin(OLED_RST_GPIO_Port, OLED_RST_Pin, arg_int);
+		break;
+	}
+	return 1;
+}
+
+uint8_t u8x8_byte_arduino_hw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr) {
+	uint8_t *data;
+	uint8_t internal_spi_mode;
+	switch(msg) {
+	case U8X8_MSG_BYTE_SEND:
+		data = (uint8_t *)arg_ptr;
+		while( arg_int > 0 ) {
+			SPI.transfer((uint8_t)*data);
+			data++;
+			arg_int--;
+		}
+		break;
+	case U8X8_MSG_BYTE_INIT:
+		u8x8_gpio_SetCS(u8x8, u8x8->display_info->chip_disable_level);
+		SPI.begin();
+		break;
+	case U8X8_MSG_BYTE_SET_DC:
+		u8x8_gpio_SetDC(u8x8, arg_int);
+		break;
+	case U8X8_MSG_BYTE_START_TRANSFER:
+		/* SPI mode has to be mapped to the mode of the current controller, at least Uno, Due, 101 have different SPI_MODEx values */
+		internal_spi_mode =  0;
+		switch(u8x8->display_info->spi_mode) {
+		case 0: internal_spi_mode = SPI_MODE0; break;
+		case 1: internal_spi_mode = SPI_MODE1; break;
+		case 2: internal_spi_mode = SPI_MODE2; break;
+		case 3: internal_spi_mode = SPI_MODE3; break;
+		}
+		SPI.beginTransaction(SPISettings(u8x8->display_info->sck_clock_hz, MSBFIRST, internal_spi_mode));
+		u8x8_gpio_SetCS(u8x8, u8x8->display_info->chip_enable_level);
+		u8x8->gpio_and_delay_cb(u8x8, U8X8_MSG_DELAY_NANO, u8x8->display_info->post_chip_enable_wait_ns, NULL);
+		break;
+		case U8X8_MSG_BYTE_END_TRANSFER:
+			u8x8->gpio_and_delay_cb(u8x8, U8X8_MSG_DELAY_NANO, u8x8->display_info->pre_chip_disable_wait_ns, NULL);
+			u8x8_gpio_SetCS(u8x8, u8x8->display_info->chip_disable_level);
+			SPI.endTransaction();
+			break;
+		default:
+			return 0;
+	}
+	return 1;
+}
+
+uint8_t u8x8_byte_arduino_hw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+{
+	switch(msg)
+	{
+	case U8X8_MSG_BYTE_SEND:
+		Wire.write((uint8_t *)arg_ptr, (int)arg_int);
+		break;
+	case U8X8_MSG_BYTE_INIT:
+		Wire.begin();
+		break;
+	case U8X8_MSG_BYTE_SET_DC:
+		break;
+	case U8X8_MSG_BYTE_START_TRANSFER:
+		if ( u8x8->display_info->i2c_bus_clock_100kHz >= 4 )
+		{
+			Wire.setClock(400000L);
+		}
+		Wire.beginTransmission(u8x8_GetI2CAddress(u8x8)>>1);
+		break;
+	case U8X8_MSG_BYTE_END_TRANSFER:
+		Wire.endTransmission();
+		break;
+	default:
+		return 0;
+	}
+	return 1;
+}

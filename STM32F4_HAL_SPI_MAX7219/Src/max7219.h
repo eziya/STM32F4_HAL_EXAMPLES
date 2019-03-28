@@ -9,6 +9,7 @@
 #define MAX7219_H_
 
 #include "stm32f4xx_hal.h"
+#include <stdbool.h>
 
 #define MAX7219_REG_NOOP		0x00
 #define MAX7219_REG_D0			0x01
@@ -27,14 +28,13 @@
 
 #define MAX7219_IC_NUM		4
 
-void MAX7219_Init(SPI_HandleTypeDef* spi, GPIO_TypeDef* cs_port, uint16_t cs_pin);
-void MAX7219_Write(uint8_t index, uint8_t reg, uint8_t data);
-void MAX7219_Digit(uint8_t index, uint8_t digit, int8_t value);
-void MAX7219_Decode(uint8_t index, uint8_t value);
-void MAX7219_Intensity(uint8_t index, uint8_t value);
-void MAX7219_ScanLimit(uint8_t index, uint8_t value);
-void MAX7219_ShutDown(uint8_t index, uint8_t value);
-void MAX7219_Test(uint8_t index, uint8_t value);
-
+void MAX7219_Init(SPI_HandleTypeDef* spi, GPIO_TypeDef* ss_port, uint16_t ss_pin);
+bool MAX7219_Write(uint8_t index, uint8_t reg, uint8_t data);
+bool MAX7219_Digit(uint8_t index, uint8_t digit, int8_t value);
+bool MAX7219_Decode(uint8_t index, uint8_t value);
+bool MAX7219_Intensity(uint8_t index, uint8_t value);
+bool MAX7219_ScanLimit(uint8_t index, uint8_t value);
+bool MAX7219_ShutDown(uint8_t index, uint8_t value);
+bool MAX7219_Test(uint8_t index, uint8_t value);
 
 #endif /* MAX7219_H_ */
