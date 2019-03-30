@@ -2,6 +2,7 @@
 ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.ui.workbenchMisc
 ColorsAndFontsPreferencePage.selectedElement=Forg.eclipse.jface.textfont
 ENABLED_DECORATORS=com.arm.cmsis.pack.project.decorators.RteProjectDecorator\:true,com.atollic.truestudio.integration.processorexpert.decorator\:true,org.eclipse.cdt.ui.indexedFiles\:false,org.eclipse.cdt.managedbuilder.ui.excludedFile\:true,org.eclipse.cdt.managedbuilder.ui.includeFolder\:true,org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator\:true,org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator\:true,org.eclipse.mylyn.context.ui.decorator.interest\:true,org.eclipse.mylyn.tasks.ui.decorators.task\:true,org.eclipse.mylyn.team.ui.changeset.decorator\:true,org.eclipse.team.cvs.ui.decorator\:false,org.eclipse.team.svn.ui.decorator.SVNLightweightDecorator\:true,org.eclipse.ui.LinkedResourceDecorator\:true,org.eclipse.ui.SymlinkDecorator\:true,org.eclipse.ui.VirtualResourceDecorator\:true,org.eclipse.ui.ContentTypeDecorator\:true,org.eclipse.ui.ResourceFilterDecorator\:false,
+RUN_IN_BACKGROUND=true
 UIActivities.org.eclipse.cdt.debug.dsfgdbActivity=true
 eclipse.preferences.version=1
 org.eclipse.cdt.debug.ui.ModulesDetailPaneFont=1|D2Coding|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|0|3|2|1|49|D2Coding;
