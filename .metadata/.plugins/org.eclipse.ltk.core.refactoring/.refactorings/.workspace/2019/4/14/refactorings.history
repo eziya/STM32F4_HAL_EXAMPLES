@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="&apos;STM32F4_HAL_CRC&apos; 자원을 삭제합니다." deleteContents="false" description="&apos;STM32F4_HAL_CRC&apos; 자원을 삭제합니다." element1="/STM32F4_HAL_CRC" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1554551605770"/>
+</session>
