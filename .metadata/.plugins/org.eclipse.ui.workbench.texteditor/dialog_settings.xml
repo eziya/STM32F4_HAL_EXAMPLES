@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="ROM_SIZEinWORDS" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="__HAL_RCC_GET_FLAG"/>
 			<item value="ROM_SIZEinWORDS"/>
 			<item value="_Check"/>
 			<item value="check"/>
@@ -15,7 +16,6 @@
 			<item value="Max7219_CS_Pin"/>
 			<item value="Max7219_CS_Port"/>
 			<item value="MAX7219_Deselect"/>
-			<item value="MAX7219_Select"/>
 		</list>
 		<list key="replacehistory">
 			<item value="SPI_Tx"/>

@@ -1,11 +1,13 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_CRC.elf
+configDescList=
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_CRC.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_CRC.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_I2C_DS3231.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_I2C_DS3231.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_IWDG.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_IWDG.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_EEPROM_25LC010A.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_EEPROM_25LC010A.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_MAX7219.elf/activeLaunchMode=debug

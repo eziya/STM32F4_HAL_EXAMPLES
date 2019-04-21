@@ -13,6 +13,8 @@
 		<item value="false" key="caseSensitive"/>
 		<item value="227191" key="searchFlags"/>
 		<list key="previousPatterns">
+			<item value="__HAL_DBGMCU_FREEZE_IWDG"/>
+			<item value="__HAL_RCC_GET_FLAG"/>
 			<item value="u8g2_Setup_ssd1306_128x64_noname_f"/>
 			<item value="i2c_address"/>
 			<item value="u8x8_GetI2CAddress"/>
