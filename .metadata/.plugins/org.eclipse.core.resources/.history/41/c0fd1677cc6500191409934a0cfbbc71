@@ -1,0 +1,29 @@
+/*
+ * metainfo.c
+ *
+ *  Created on: 2019. 4. 23.
+ *      Author: KIKI
+ */
+#include "main.h"
+#include "stm32f4xx_hal.h"
+
+__attribute__((section(".metainfo")))
+const uint16_t metainfo[16] =
+{
+		0xCAFE,
+		0x0102,
+		0x0304,
+		0x0506,
+		0x0708,
+		0x090A,
+		0x0B0C,
+		0x0D0E,
+		0x0F01,
+		0x0203,
+		0x0405,
+		0x0607,
+		0x0809,
+		0x0A0B,
+		0x0C0D,
+		0xDEAD
+};

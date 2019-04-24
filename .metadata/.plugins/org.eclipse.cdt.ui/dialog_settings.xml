@@ -5,7 +5,7 @@
 	<item value="Default C header template" key="LastUsedHeaderTemplate"/>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
 		<item value="180" key="size.height"/>
-		<item value="585" key="size.width"/>
+		<item value="681" key="size.width"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
@@ -13,6 +13,7 @@
 		<item value="false" key="caseSensitive"/>
 		<item value="227191" key="searchFlags"/>
 		<list key="previousPatterns">
+			<item value="VECTORTABLE_SIZE"/>
 			<item value="__HAL_DBGMCU_FREEZE_IWDG"/>
 			<item value="__HAL_RCC_GET_FLAG"/>
 			<item value="u8g2_Setup_ssd1306_128x64_noname_f"/>
