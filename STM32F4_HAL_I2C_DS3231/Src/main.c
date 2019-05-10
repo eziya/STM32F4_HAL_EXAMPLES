@@ -64,9 +64,9 @@ static void MX_I2C1_Init(void);
 
 /* USER CODE BEGIN 0 */
 _RTC rtc = {
-    .Year = 19, .Month = 12, .Date = 12,
+    .Year = 19, .Month = 12, .Date = 31,
     .DaysOfWeek = SUNDAY,
-    .Hour = 12, .Min = 12, .Sec = 12
+    .Hour = 23, .Min = 59, .Sec = 30
 };
 
 uint8_t regVal;

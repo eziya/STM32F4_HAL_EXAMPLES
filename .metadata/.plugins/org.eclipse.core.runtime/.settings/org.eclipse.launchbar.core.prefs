@@ -1,6 +1,6 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_METAINFO.elf
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_RTC_TIMESTAMP.elf
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_CRC.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_CRC.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
@@ -10,6 +10,10 @@ org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_IWDG.elf/activeLa
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_IWDG.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_METAINFO.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_METAINFO.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_RTC.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_RTC.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_RTC_TIMESTAMP.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_RTC_TIMESTAMP.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_EEPROM_25LC010A.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_EEPROM_25LC010A.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_MAX7219.elf/activeLaunchMode=debug

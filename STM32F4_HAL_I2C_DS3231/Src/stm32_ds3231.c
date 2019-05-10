@@ -29,7 +29,7 @@ bool DS3231_GetTime(_RTC *rtc)
 
   rtc->Sec = B2D(buffer[0] & 0x7F);
   rtc->Min = B2D(buffer[1] & 0x7F);
-  rtc->Hour = B2D(buffer[2] & 0x1F);
+  rtc->Hour = B2D(buffer[2] & 0x3F);
   rtc->DaysOfWeek = buffer[3] & 0x07;
   rtc->Date = B2D(buffer[4] & 0x3F);
   rtc->Month = B2D(buffer[5] & 0x1F);
