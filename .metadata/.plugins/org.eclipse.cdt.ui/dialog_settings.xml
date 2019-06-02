@@ -13,6 +13,8 @@
 		<item value="false" key="caseSensitive"/>
 		<item value="227191" key="searchFlags"/>
 		<list key="previousPatterns">
+			<item value="VECT_TAB_OFFSET"/>
+			<item value="DOWNLOAD_TIMEOUT"/>
 			<item value="HAL_RTCEx_SetWakeUpTimer"/>
 			<item value="VECTORTABLE_SIZE"/>
 			<item value="__HAL_DBGMCU_FREEZE_IWDG"/>

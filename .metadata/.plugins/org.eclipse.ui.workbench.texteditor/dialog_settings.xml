@@ -8,14 +8,14 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="RELOC_FLASH_BASE"/>
+			<item value="VECT_TAB_OFFSET"/>
+			<item value="ReceivePacket"/>
+			<item value="MAX_ERRORS"/>
+			<item value="NAK_TIMEOUT"/>
 			<item value="MODIFY_REG"/>
 			<item value="Tamper"/>
 			<item value="HAL_RTCEx_SetTimeStamp"/>
-			<item value="__HAL_RCC_GET_FLAG"/>
-			<item value="ROM_SIZEinWORDS"/>
-			<item value="_Check"/>
-			<item value="check"/>
-			<item value="MAX7219_Tx"/>
 		</list>
 		<list key="replacehistory">
 			<item value="SPI_Tx"/>
@@ -30,7 +30,7 @@
 		<item value="316" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="331" key="DIALOG_X_ORIGIN"/>
-		<item value="334" key="DIALOG_Y_ORIGIN"/>
+		<item value="218" key="DIALOG_X_ORIGIN"/>
+		<item value="356" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
