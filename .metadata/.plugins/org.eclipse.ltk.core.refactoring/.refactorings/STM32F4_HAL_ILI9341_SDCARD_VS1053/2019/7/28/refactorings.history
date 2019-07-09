@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="자원 &apos;STM32F4_HAL_ILI9341_SDCARD_VS1053/Src/Adafruit_VS1053.cpp&apos;을(를) &apos;Adafruit_VS1053.c&apos;(으)로 이름 바꾸기" description="&apos;Adafruit_VS1053.cpp&apos; 자원 이름 바꾸기" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/Adafruit_VS1053.cpp" name="Adafruit_VS1053.c" stamp="1562596983081" updateReferences="true"/>
+</session>

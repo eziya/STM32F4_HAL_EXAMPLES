@@ -1,0 +1,11 @@
+#ifndef __FONTS_H__
+#define __FONTS_H__
+
+#include <stdint.h>
+
+extern const uint8_t Arial_Narrow8x12[];
+extern const uint8_t Arial_Narrow10x13[];
+extern const uint8_t Consolas7x13[];
+extern const uint8_t Consolas9x16[];
+
+#endif // __FONTS_H__

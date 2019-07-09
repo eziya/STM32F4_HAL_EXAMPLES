@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="자원 &apos;STM32F4_HAL_ILI9341_VS1053_SDIO/Inc/5x5_font.h&apos;을(를) &apos;fonts.h&apos;(으)로 이름 바꾸기" description="&apos;5x5_font.h&apos; 자원 이름 바꾸기" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Inc/5x5_font.h" name="fonts.h" stamp="1562314927004" updateReferences="true"/>
+</session>
