@@ -2,7 +2,7 @@
 #include "fatfs.h"
 
 #define BYTES_2_WRITE 	32
-#define BUFFER_SIZE 	256
+#define BUFFER_SIZE 	512
 
 uint8_t mp3Buffer[BUFFER_SIZE];
 
@@ -71,7 +71,7 @@ bool MP3_Play(const char *filename)
     while (fileSize > BUFFER_SIZE)
     {
     	/* Fill the buffer */
-    	if(f_read(&fil, mp3Buffer, BUFFER_SIZE, (void*)&readBytes) != FR_OK) return false;
+    	if(f_read(&fil, mp3Buffer, BUFFER_SIZE, (UINT*)&readBytes) != FR_OK) return false;
 
     	/* SPI Tx buffer */
         for (cnt = 0; cnt < BUFFER_SIZE / BYTES_2_WRITE; cnt++)
@@ -84,7 +84,7 @@ bool MP3_Play(const char *filename)
     }
 
     /* If left bytes are smaller than buffer */
-    if(f_read(&fil, mp3Buffer, fileSize, (void*)&readBytes) != FR_OK) return false;
+    if(f_read(&fil, mp3Buffer, fileSize, (UINT*)&readBytes) != FR_OK) return false;
 
     /* SPI Tx buffer */
     for (cnt = 0; cnt < fileSize; cnt++)

@@ -2,7 +2,7 @@
 #include "fatfs.h"
 
 #define BYTES_2_WRITE 	32
-#define BUFFER_SIZE 	256
+#define BUFFER_SIZE 	512
 
 uint8_t mp3Buffer[BUFFER_SIZE];
 
@@ -29,20 +29,10 @@ bool MP3_Init()
     VS1053_Init();
     VS1053_Reset();
 
-    if(!VS1053_CmdWrite(_VS1053_WRAMADDR_ADDR, 0xC017)) return false;
-    if(!VS1053_CmdWrite(_VS1053_WRAM_ADDR, 3)) return false;
-    if(!VS1053_CmdWrite(_VS1053_WRAMADDR_ADDR, 0xC019)) return false;
-    if(!VS1053_CmdWrite(_VS1053_WRAM_ADDR, 0)) return false;
-    HAL_Delay(100);
-
-    /* Soft Reset */
-    if(!VS1053_CmdWrite(_VS1053_MODE_ADDR, 0x0804)) return false;
-    HAL_Delay(100);
-
     // MP3 configuration
-    if(!VS1053_CmdWrite(_VS1053_MODE_ADDR, 0x4800)) return false;
+    if(!VS1053_CmdWrite(_VS1053_MODE_ADDR, 0x0800)) return false;
     if(!VS1053_CmdWrite(_VS1053_BASS_ADDR, 0x7A00)) return false;
-    if(!VS1053_CmdWrite(_VS1053_CLOCKF_ADDR, 0x6000)) return false;
+    if(!VS1053_CmdWrite(_VS1053_CLOCKF_ADDR, 0x2000)) return false;
 
     // MP3 set volume, maximum volume is 0x00 and total silence is 0xFE.
     if(!MP3_SetVolume( 0x2F, 0x2F )) return false;
@@ -55,15 +45,8 @@ bool MP3_Init()
 
 bool MP3_Play(const char *filename)
 {
-	if(!VS1053_CmdWrite(_VS1053_MODE_ADDR, 0x4800)) return false;
-	if(!VS1053_CmdWrite(_VS1053_WRAMADDR_ADDR, 0x1e29)) return false;
-	if(!VS1053_CmdWrite(_VS1053_WRAM_ADDR, 0)) return false;
-
 	/* Open file to read */
 	if(f_open(&fil, filename, FA_READ) != FR_OK) return false;
-
-	if(!VS1053_CmdWrite(_VS1053_DECODE_TIME_ADDR, 0x00)) return false;
-	if(!VS1053_CmdWrite(_VS1053_DECODE_TIME_ADDR, 0x00)) return false;
 
 	/* Get the file size */
 	fileSize = f_size(&fil);
@@ -71,7 +54,7 @@ bool MP3_Play(const char *filename)
     while (fileSize > BUFFER_SIZE)
     {
     	/* Fill the buffer */
-    	if(f_read(&fil, mp3Buffer, BUFFER_SIZE, (void*)&readBytes) != FR_OK) return false;
+    	if(f_read(&fil, mp3Buffer, BUFFER_SIZE, (UINT*)&readBytes) != FR_OK) return false;
 
     	/* SPI Tx buffer */
         for (cnt = 0; cnt < BUFFER_SIZE / BYTES_2_WRITE; cnt++)
@@ -84,7 +67,7 @@ bool MP3_Play(const char *filename)
     }
 
     /* If left bytes are smaller than buffer */
-    if(f_read(&fil, mp3Buffer, fileSize, (void*)&readBytes) != FR_OK) return false;
+    if(f_read(&fil, mp3Buffer, fileSize, (UINT*)&readBytes) != FR_OK) return false;
 
     /* SPI Tx buffer */
     for (cnt = 0; cnt < fileSize; cnt++)
