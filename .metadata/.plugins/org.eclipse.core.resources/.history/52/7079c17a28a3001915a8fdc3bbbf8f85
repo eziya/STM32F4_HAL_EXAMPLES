@@ -38,7 +38,7 @@ extern const uint8_t _VS1053_AICTRL1_ADDR;
 extern const uint8_t _VS1053_AICTRL2_ADDR;
 extern const uint8_t _VS1053_AICTRL3_ADDR;
 
-bool VS1053_Init();
+uint8_t VS1053_Init();
 void VS1053_Reset();
 bool VS1053_IsBusy();
 bool VS1053_CmdWrite(uint8_t address, uint16_t input);

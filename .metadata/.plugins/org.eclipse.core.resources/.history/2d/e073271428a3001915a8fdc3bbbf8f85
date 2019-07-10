@@ -21,7 +21,7 @@ const uint8_t _VS1053_AICTRL1_ADDR     = 0x0D;
 const uint8_t _VS1053_AICTRL2_ADDR     = 0x0E;
 const uint8_t _VS1053_AICTRL3_ADDR     = 0x0F;
 
-bool VS1053_Init()
+uint8_t VS1053_Init()
 {
 	uint16_t status = 0;
 	uint8_t ret;
@@ -30,10 +30,8 @@ bool VS1053_Init()
 	HAL_GPIO_WritePin(VS1053_XCS_PORT, VS1053_XCS_PIN, GPIO_PIN_SET);		/* XCS High */
 	HAL_GPIO_WritePin(VS1053_XRST_PORT, VS1053_XRST_PIN, GPIO_PIN_SET);		/* XRST High */
 
-	HAL_Delay(100);
-
 	VS1053_CmdRead(_VS1053_STATUS_ADDR, &status);
-	return (((status >> 4) & 0x0F) == 0x04) ? true : false;
+	return (status >> 4) & 0x0F;
 }
 
 void VS1053_Reset()
@@ -41,7 +39,6 @@ void VS1053_Reset()
 	HAL_GPIO_WritePin(VS1053_XRST_PORT, VS1053_XRST_PIN, GPIO_PIN_RESET);		/* XRST Low */
     HAL_Delay(100);																/* 100ms Delay */
     HAL_GPIO_WritePin(VS1053_XRST_PORT, VS1053_XRST_PIN, GPIO_PIN_SET);			/* XRST High */
-    HAL_Delay(100);
 
     while (HAL_GPIO_ReadPin(VS1053_DREQ_PORT, VS1053_DREQ_PIN) == GPIO_PIN_RESET);	/* Wait DREQ High */
 }
@@ -68,10 +65,8 @@ bool VS1053_CmdWrite( uint8_t address, uint16_t input )
     buffer[3] = input & 0x00FF;		/* Input LSB */
 
     HAL_GPIO_WritePin(VS1053_XCS_PORT, VS1053_XCS_PIN, GPIO_PIN_RESET);			/* XCS Low */
-    HAL_Delay(1);
     if(HAL_SPI_Transmit(HSPI_VS1053, buffer, sizeof(buffer), 10) != HAL_OK) return false;
     HAL_GPIO_WritePin(VS1053_XCS_PORT, VS1053_XCS_PIN, GPIO_PIN_RESET);			/* XCS High */
-    HAL_Delay(1);
 
     while (HAL_GPIO_ReadPin(VS1053_DREQ_PORT, VS1053_DREQ_PIN) == GPIO_PIN_RESET);	/* Wait DREQ High */
 
@@ -89,14 +84,12 @@ bool VS1053_CmdRead( uint8_t address, uint16_t *res)
     txBuffer[3] = 0;
 
     HAL_GPIO_WritePin(VS1053_XCS_PORT, VS1053_XCS_PIN, GPIO_PIN_RESET);			/* XCS Low */
-    HAL_Delay(1);
     if(HAL_SPI_TransmitReceive(HSPI_VS1053, txBuffer, rxBuffer, sizeof(txBuffer), 10) != HAL_OK) return false;
     HAL_GPIO_WritePin(VS1053_XCS_PORT, VS1053_XCS_PIN, GPIO_PIN_RESET);			/* XCS High */
-    HAL_Delay(1);
 
-    *res = rxBuffer[2];				/* Received data */
+    *res = rxBuffer[3];				/* Received data */
     *res <<= 8;						/* MSB */
-    *res |= rxBuffer[3];				/* LSB */
+    *res |= rxBuffer[4];				/* LSB */
 
     while (HAL_GPIO_ReadPin(VS1053_DREQ_PORT, VS1053_DREQ_PIN) == GPIO_PIN_RESET);	/* Wait DREQ High */
 
@@ -111,10 +104,8 @@ bool VS1053_DataWrite( uint8_t input )
     }
 
     HAL_GPIO_WritePin(VS1053_XDCS_PORT, VS1053_XDCS_PIN, GPIO_PIN_RESET);			/* XDCS Low(SDI) */
-    HAL_Delay(1);
     if(HAL_SPI_Transmit(HSPI_VS1053, &input, 1, 10) != HAL_OK) return false;		/* SPI Tx 1 byte */
     HAL_GPIO_WritePin(VS1053_XDCS_PORT, VS1053_XDCS_PIN, GPIO_PIN_SET);				/* XDCS High(SDI) */
-    HAL_Delay(1);
 
     return true;
 }
@@ -127,10 +118,8 @@ bool VS1053_DataWrite32( uint8_t *input32 )
 	}
 
 	HAL_GPIO_WritePin(VS1053_XDCS_PORT, VS1053_XDCS_PIN, GPIO_PIN_RESET);			/* XDCS Low(SDI) */
-	HAL_Delay(1);
 	if(HAL_SPI_Transmit(HSPI_VS1053, input32, 32, 10) != HAL_OK) return false;		/* SPI Tx 32 bytes */
     HAL_GPIO_WritePin(VS1053_XDCS_PORT, VS1053_XDCS_PIN, GPIO_PIN_SET);				/* XDCS High(SDI) */
-    HAL_Delay(1);
 
     return true;
 }

@@ -26,7 +26,7 @@ bool MP3_SetVolume(uint8_t volumeLeft, uint8_t volumeRight)
 /* Initialize VS1053 & Open a file */
 bool MP3_Init()
 {
-    if(!VS1053_Init()) return false;
+    VS1053_Init();
     VS1053_Reset();
 
     if(!VS1053_CmdWrite(_VS1053_WRAMADDR_ADDR, 0xC017)) return false;

@@ -30,8 +30,6 @@ bool VS1053_Init()
 	HAL_GPIO_WritePin(VS1053_XCS_PORT, VS1053_XCS_PIN, GPIO_PIN_SET);		/* XCS High */
 	HAL_GPIO_WritePin(VS1053_XRST_PORT, VS1053_XRST_PIN, GPIO_PIN_SET);		/* XRST High */
 
-	HAL_Delay(100);
-
 	VS1053_CmdRead(_VS1053_STATUS_ADDR, &status);
 	return (((status >> 4) & 0x0F) == 0x04) ? true : false;
 }
@@ -41,7 +39,6 @@ void VS1053_Reset()
 	HAL_GPIO_WritePin(VS1053_XRST_PORT, VS1053_XRST_PIN, GPIO_PIN_RESET);		/* XRST Low */
     HAL_Delay(100);																/* 100ms Delay */
     HAL_GPIO_WritePin(VS1053_XRST_PORT, VS1053_XRST_PIN, GPIO_PIN_SET);			/* XRST High */
-    HAL_Delay(100);
 
     while (HAL_GPIO_ReadPin(VS1053_DREQ_PORT, VS1053_DREQ_PIN) == GPIO_PIN_RESET);	/* Wait DREQ High */
 }
