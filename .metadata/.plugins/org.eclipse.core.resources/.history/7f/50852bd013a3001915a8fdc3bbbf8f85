@@ -1,0 +1,12 @@
+#ifndef MP3_PLAYER_H_
+#define MP3_PLAYER_H_
+
+#include "VS1053.h"
+#include "stm32f4xx_hal.h"
+#include "fatfs.h"
+
+void MP3_SetVolume(uint8_t volumeLeft, uint8_t volumeRight);
+void MP3_Init();
+void MP3_Play();
+
+#endif /* MP3_PLAYER_H_ */

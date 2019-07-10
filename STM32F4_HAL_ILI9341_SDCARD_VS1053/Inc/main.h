@@ -69,7 +69,6 @@
 #define SD_CS_GPIO_Port GPIOB
 #define MP3_DREQ_Pin GPIO_PIN_0
 #define MP3_DREQ_GPIO_Port GPIOD
-#define MP3_DREQ_EXTI_IRQn EXTI0_IRQn
 #define MP3_RST_Pin GPIO_PIN_1
 #define MP3_RST_GPIO_Port GPIOD
 #define MP3_CS_Pin GPIO_PIN_2
