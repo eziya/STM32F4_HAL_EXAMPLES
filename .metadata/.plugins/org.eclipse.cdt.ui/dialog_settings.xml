@@ -20,6 +20,12 @@
 		<item value="false" key="caseSensitive"/>
 		<item value="227191" key="searchFlags"/>
 		<list key="previousPatterns">
+			<item value="USBH_initialize"/>
+			<item value="USBHFatFS"/>
+			<item value="OTG_FS_PowerSwitchOn_GPIO_Port"/>
+			<item value="HAL_GPIO_WritePinOTG_FS_PowerSwitchOn_GPIO_Port"/>
+			<item value="USBHPath"/>
+			<item value="MP3_Init"/>
 			<item value="SD_TxDataBlock"/>
 			<item value="_USE_WRITE"/>
 			<item value="_READONLY"/>

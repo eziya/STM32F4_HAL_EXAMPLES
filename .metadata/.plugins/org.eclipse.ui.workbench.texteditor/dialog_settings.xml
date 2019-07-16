@@ -2,37 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value=".fs = " key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value=".fs = "/>
-			<item value="pfs"/>
-			<item value="GPIO_digitalRead"/>
-			<item value="(ocr[0] &amp; 0x40)"/>
-			<item value="CT_BLOCK"/>
-			<item value="CT_SD2"/>
-			<item value="SD_SendCmd"/>
-			<item value="ignore"/>
+			<item value="_WORD_ACCESS "/>
+			<item value="_WORD_ACCESS"/>
+			<item value="USBH_Path"/>
+			<item value="rwflag"/>
+			<item value="cnt"/>
+			<item value="VS1053_Reset"/>
+			<item value="XRST_HIGH"/>
+			<item value="MP3_Init"/>
 		</list>
 		<list key="replacehistory">
-			<item value="discard"/>
-			<item value="args"/>
-			<item value="CmdArgs"/>
-			<item value="SD_CS_PIN"/>
-			<item value="SD_CS_PORT"/>
-			<item value="HSPI_SDCARD"/>
-			<item value="freeSpace"/>
-			<item value="totalSpace"/>
+			<item value="VS1053_SdiWrite32"/>
+			<item value="VS1053_SdiWrite"/>
+			<item value="VS1053_SciRead"/>
+			<item value="VS1053_SciWrite"/>
+			<item value="&amp;mp3File"/>
+			<item value="mp3File"/>
+			<item value="mp3FileSize"/>
+			<item value="fileSize"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="316" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="138" key="DIALOG_X_ORIGIN"/>
-		<item value="317" key="DIALOG_Y_ORIGIN"/>
+		<item value="33" key="DIALOG_X_ORIGIN"/>
+		<item value="378" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

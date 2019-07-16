@@ -1,7 +1,9 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_ILI9341_SDCARD_VS1053.elf
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_USB_STORAGE.elf
 eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_ADAFRUIT_MUSICMAKER.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_ADAFRUIT_MUSICMAKER.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_ADC_INJECTED.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_ADC_INJECTED.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_CRC.elf/activeLaunchMode=debug
@@ -40,3 +42,7 @@ org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_MAX7219.elf/a
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_MAX7219.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_OLED.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_SPI_OLED.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_USB_FATFS.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_USB_FATFS.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_USB_STORAGE.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:STM32F4_HAL_USB_STORAGE.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
