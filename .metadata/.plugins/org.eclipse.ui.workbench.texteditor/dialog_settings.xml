@@ -2,30 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="Error_Handler" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="DisplayError"/>
+			<item value="MyFile"/>
+			<item value="USBDISKFatFs"/>
 			<item value="_WORD_ACCESS "/>
 			<item value="_WORD_ACCESS"/>
 			<item value="USBH_Path"/>
 			<item value="rwflag"/>
 			<item value="cnt"/>
-			<item value="VS1053_Reset"/>
-			<item value="XRST_HIGH"/>
-			<item value="MP3_Init"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Error_Handler"/>
+			<item value="USBHFile"/>
+			<item value="USBHFatFS"/>
 			<item value="VS1053_SdiWrite32"/>
 			<item value="VS1053_SdiWrite"/>
 			<item value="VS1053_SciRead"/>
 			<item value="VS1053_SciWrite"/>
 			<item value="&amp;mp3File"/>
-			<item value="mp3File"/>
-			<item value="mp3FileSize"/>
-			<item value="fileSize"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

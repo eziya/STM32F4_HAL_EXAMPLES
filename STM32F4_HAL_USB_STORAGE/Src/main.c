@@ -102,12 +102,18 @@ void MountUSB(void)
 {
 	FRESULT res = f_mount(&USBHFatFS, USBHPath, 0);
 	if(res != FR_OK) Error_Handler();
+
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 }
 
 void UnMountUSB(void)
 {
 	FRESULT res = f_mount(NULL, "", 0);
 	if(res != FR_OK) Error_Handler();
+
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
 }
 
 void OpenFile()
@@ -227,8 +233,8 @@ int main(void)
 				TruncateFile();
 			}
 		}
-		/* USER CODE END 3 */
 	}
+	/* USER CODE END 3 */
 
 }
 
@@ -305,9 +311,13 @@ static void MX_GPIO_Init(void)
 	__HAL_RCC_GPIOH_CLK_ENABLE();
 	__HAL_RCC_GPIOC_CLK_ENABLE();
 	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOD_CLK_ENABLE();
 
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(VBUS_SW_GPIO_Port, VBUS_SW_Pin, GPIO_PIN_RESET);
+
+	/*Configure GPIO pin Output Level */
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12|GPIO_PIN_14, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin : VBUS_SW_Pin */
 	GPIO_InitStruct.Pin = VBUS_SW_Pin;
@@ -321,6 +331,13 @@ static void MX_GPIO_Init(void)
 	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	/*Configure GPIO pins : PD12 PD14 */
+	GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_14;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
 	/* EXTI interrupt init*/
 	HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
@@ -342,8 +359,6 @@ void _Error_Handler(char *file, int line)
 {
 	/* USER CODE BEGIN Error_Handler_Debug */
 	/* User can add his own implementation to report the HAL error return state */
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
 
 	while(1)
 	{

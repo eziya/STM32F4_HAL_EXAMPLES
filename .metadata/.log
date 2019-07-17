@@ -6670,3 +6670,176 @@ java.net.ConnectException: Connection refused: connect
 	at com.atollic.truestudio.swv.core.SWVClient.connect(SWVClient.java:173)
 	at com.atollic.truestudio.swv.core.SWVClient.getNextByte(SWVClient.java:287)
 	at com.atollic.truestudio.swv.core.SWVClient.run(SWVClient.java:327)
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-07-16 22:34:37.301
+!MESSAGE Unloading product manager
+!SESSION 2019-07-17 09:13:57.197 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=ko_KR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-07-17 09:14:04.381
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-07-17 09:14:04.768
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-07-17 09:14:20.688
+!MESSAGE Target: STM32, Version: 9.2.0, Build date: 20181203-0921, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-07-17 09:14:20.689
+!MESSAGE Workspace: F:\Workspace\GitHub\STM32F4_HAL_EXAMPLES
+
+!ENTRY org.eclipse.jface 2 0 2019-07-17 09:14:33.610
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-07-17 09:14:33.610
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@bc3bcf,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,터미널 명령어,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@13d5094,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-07-17 09:14:49.378
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-07-17 09:14:49.645
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\KIKI'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-07-17 09:14:50.383
+!MESSAGE Code Review is up.
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-07-17 09:51:31.435
+!MESSAGE Unloading product manager
+!SESSION 2019-07-17 22:23:48.987 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=ko_KR
+Framework arguments:  F:\Workspace\GitHub\STM32F4_HAL_EXAMPLES\STM32F4_HAL_USB_STORAGE\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86 F:\Workspace\GitHub\STM32F4_HAL_EXAMPLES\STM32F4_HAL_USB_STORAGE\.cproject
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-07-17 22:23:55.702
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-07-17 22:23:56.067
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-07-17 22:24:01.732
+!MESSAGE Target: STM32, Version: 9.2.0, Build date: 20181203-0921, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-07-17 22:24:01.733
+!MESSAGE Workspace: F:\Workspace\GitHub\STM32F4_HAL_EXAMPLES
+
+!ENTRY org.eclipse.jface 2 0 2019-07-17 22:24:10.299
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-07-17 22:24:10.299
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@d701e4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,터미널 명령어,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@9151c1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-07-17 22:24:22.606
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-07-17 22:24:22.814
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\KIKI'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-07-17 22:24:23.537
+!MESSAGE Code Review is up.
+
+!ENTRY com.atollic.hardwaredebug.jlink_common 1 0 2019-07-17 22:29:24.944
+!MESSAGE Using automatic SWV detection; base: 4500000; minDiv: 1; maxSWO: 4500000; SWO: 4500000; CPU: 168000000; div: 37
+
+!ENTRY com.atollic.hardwaredebug.jlink_common 1 0 2019-07-17 22:34:07.296
+!MESSAGE Using automatic SWV detection; base: 4500000; minDiv: 1; maxSWO: 4500000; SWO: 4500000; CPU: 168000000; div: 37
+
+!ENTRY com.atollic.truestudio.swv.core 4 0 2019-07-17 22:34:30.483
+!MESSAGE SWV Client received I/O Exception: Connection reset... trying to reconnect
+
+!ENTRY com.atollic.truestudio.swv.core 4 0 2019-07-17 22:34:31.489
+!MESSAGE SWVClient - Failed to connect to Host: localhost Port: 2332
+
+!ENTRY com.atollic.truestudio.swv.core 4 0 2019-07-17 22:34:31.490
+!MESSAGE Failed to reconnect and read data
+!STACK 0
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at com.atollic.truestudio.swv.core.SWVClient.connect(SWVClient.java:173)
+	at com.atollic.truestudio.swv.core.SWVClient.getNextByte(SWVClient.java:287)
+	at com.atollic.truestudio.swv.core.SWVClient.run(SWVClient.java:327)
+
+!ENTRY com.atollic.hardwaredebug.jlink_common 1 0 2019-07-17 22:35:23.483
+!MESSAGE Using automatic SWV detection; base: 4500000; minDiv: 1; maxSWO: 4500000; SWO: 4500000; CPU: 168000000; div: 37
+
+!ENTRY com.atollic.truestudio.swv.core 4 0 2019-07-17 22:35:59.767
+!MESSAGE SWV Client received I/O Exception: Connection reset... trying to reconnect
+
+!ENTRY com.atollic.truestudio.swv.core 4 0 2019-07-17 22:36:00.773
+!MESSAGE SWVClient - Failed to connect to Host: localhost Port: 2332
+
+!ENTRY com.atollic.truestudio.swv.core 4 0 2019-07-17 22:36:00.774
+!MESSAGE Failed to reconnect and read data
+!STACK 0
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at com.atollic.truestudio.swv.core.SWVClient.connect(SWVClient.java:173)
+	at com.atollic.truestudio.swv.core.SWVClient.getNextByte(SWVClient.java:287)
+	at com.atollic.truestudio.swv.core.SWVClient.run(SWVClient.java:327)
+
+!ENTRY com.atollic.hardwaredebug.jlink_common 1 0 2019-07-17 22:44:02.999
+!MESSAGE Using automatic SWV detection; base: 4500000; minDiv: 1; maxSWO: 4500000; SWO: 4500000; CPU: 168000000; div: 37
