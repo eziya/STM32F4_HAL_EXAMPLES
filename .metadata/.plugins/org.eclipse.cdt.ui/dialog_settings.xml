@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="STM32F407xx" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
-	<item value="Default C source template" key="LastUsedSourceTemplate"/>
-	<item value="Default C header template" key="LastUsedHeaderTemplate"/>
+	<item key="LastUsedSourceTemplate" value="Default C source template"/>
+	<item key="LastUsedHeaderTemplate" value="Default C header template"/>
+	<item key="org.eclipse.cdt.ui.codeformatter.create_profile_dialog.open_edit" value="true"/>
+	<item key="org.eclipse.cdt.uiformatter_page.white_space.c_view.inner" value="72"/>
+	<item key="org.eclipse.cdt.uiformatter_page.white_space_tab_page.node" value="0"/>
+	<item key="org.eclipse.cdt.uiformatter_page.line_wrapping_tab_page.last_category_index" value="1"/>
+	<item key="formatter_page.modify_dialog_tab_page.last_focus_index" value="1"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_width" value="1103"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_height" value="902"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x" value="477"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y" value="0"/>
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="../Middlewares/Audio"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.last_focus" value="2"/>
 	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
-		<item value="398" key="DIALOG_WIDTH"/>
-		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
-		<item value="438" key="DIALOG_HEIGHT"/>
-		<item value="769" key="DIALOG_X_ORIGIN"/>
-		<item value="296" key="DIALOG_Y_ORIGIN"/>
+		<item key="DIALOG_WIDTH" value="398"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="DIALOG_HEIGHT" value="438"/>
+		<item key="DIALOG_X_ORIGIN" value="769"/>
+		<item key="DIALOG_Y_ORIGIN" value="296"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
-		<item value="180" key="size.height"/>
-		<item value="681" key="size.width"/>
+		<item key="size.height" value="180"/>
+		<item key="size.width" value="681"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
 	<section name="PDOMSearchPage">
-		<item value="false" key="caseSensitive"/>
-		<item value="227191" key="searchFlags"/>
+		<item key="caseSensitive" value="false"/>
+		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="PLAY_Pause"/>
+			<item value="PLAY_Idle"/>
+			<item value="PLAY_State_e"/>
+			<item value="AUDIO_StorageParse"/>
+			<item value="USBH_UserProcess"/>
+			<item value="AUDIO_LINKh"/>
+			<item value="AUDIO_RESET_GPIO"/>
+			<item value="AUDIO_DrvTypeDef"/>
+			<item value="AUDIO_Drv_t"/>
+			<item value="AUDIO_OUT_ClockConfig"/>
 			<item value="USBH_initialize"/>
 			<item value="USBHFatFS"/>
 			<item value="OTG_FS_PowerSwitchOn_GPIO_Port"/>
@@ -54,8 +74,11 @@
 		</list>
 	</section>
 	<section name="OptionalMessageDialog.hide.">
-		<item value="0" key="askReindex.detail"/>
+		<item key="askReindex.detail" value="0"/>
 	</section>
 	<section name="completion_proposal_size">
+	</section>
+	<section name="CResourceRenameRefactoringInputPage">
+		<item key="updateReferences" value="true"/>
 	</section>
 </section>

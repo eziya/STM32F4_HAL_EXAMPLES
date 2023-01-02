@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item value="false" key="isRegEx"/>
-		<item value="Error_Handler" key="selection"/>
-		<item value="false" key="casesensitive"/>
-		<item value="false" key="incremental"/>
-		<item value="true" key="wrap"/>
-		<item value="false" key="wholeword"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="f_close"/>
+		<item key="casesensitive" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="wrap" value="true"/>
+		<item key="wholeword" value="false"/>
 		<list key="findhistory">
+			<item value="f_close"/>
+			<item value="PLAYER_CONTROL_e"/>
 			<item value="DisplayError"/>
 			<item value="MyFile"/>
 			<item value="USBDISKFatFs"/>
 			<item value="_WORD_ACCESS "/>
 			<item value="_WORD_ACCESS"/>
 			<item value="USBH_Path"/>
-			<item value="rwflag"/>
-			<item value="cnt"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Error_Handler"/>
@@ -29,10 +29,10 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="316" key="DIALOG_WIDTH"/>
-		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
-		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="33" key="DIALOG_X_ORIGIN"/>
-		<item value="378" key="DIALOG_Y_ORIGIN"/>
+		<item key="DIALOG_WIDTH" value="316"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_X_ORIGIN" value="33"/>
+		<item key="DIALOG_Y_ORIGIN" value="378"/>
 	</section>
 </section>
