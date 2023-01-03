@@ -11,13 +11,13 @@
 
 extern void Error_Handler(void);
 
-//I2S PLL parameters for different I2S Sampling Frequency
-const uint32_t I2SFreq[8] =
-{ 8000, 11025, 16000, 22050, 32000, 44100, 48000, 96000 };
-const uint32_t I2SPLLN[8] =
-{ 256, 429, 213, 429, 426, 271, 258, 344 };
-const uint32_t I2SPLLR[8] =
-{ 5, 4, 4, 4, 4, 6, 3, 1 };
+// Refer to STM32F407 reference manual Table.127 when master clock is enabled.
+const uint32_t I2SFreq[7] =
+{ 8000, 16000, 32000, 48000, 96000, 22050, 44100};
+const uint32_t I2SPLLN[7] =
+{ 256, 213, 213, 258, 344, 429, 271};
+const uint32_t I2SPLLR[7] =
+{ 5, 2, 2, 3, 2, 4, 2 };
 
 static I2S_HandleTypeDef *hAudioI2S;
 
@@ -29,7 +29,7 @@ static void audioI2S_pllClockConfig(uint32_t audioFreq)
 	RCC_PeriphCLKInitTypeDef rccclkinit;
 	uint8_t index = 0, freqindex = 0xFF;
 
-	for(index = 0; index < 8; index++)
+	for(index = 0; index < 7; index++)
 	{
 		if(I2SFreq[index] == audioFreq)
 		{
@@ -39,10 +39,8 @@ static void audioI2S_pllClockConfig(uint32_t audioFreq)
 	/* Enable PLLI2S clock */
 	HAL_RCCEx_GetPeriphCLKConfig(&rccclkinit);
 
-	/* PLLI2S_VCO Input = HSE_VALUE/PLL_M = 1 Mhz */
-	if((freqindex & 0x7) != 0)
+	if((freqindex & 0x6) != 0)
 	{
-		/* I2SCLK = 1MHz * PLLI2SN / PLLI2SR */
 		rccclkinit.PeriphClockSelection = RCC_PERIPHCLK_I2S;
 		rccclkinit.PLLI2S.PLLI2SN = I2SPLLN[freqindex];
 		rccclkinit.PLLI2S.PLLI2SR = I2SPLLR[freqindex];
@@ -50,10 +48,10 @@ static void audioI2S_pllClockConfig(uint32_t audioFreq)
 	}
 	else
 	{
-		/* Undefined frequency */
+		/* default 44.1kHz */
 		rccclkinit.PeriphClockSelection = RCC_PERIPHCLK_I2S;
-		rccclkinit.PLLI2S.PLLI2SN = 258;
-		rccclkinit.PLLI2S.PLLI2SR = 3;
+		rccclkinit.PLLI2S.PLLI2SN = 271;
+		rccclkinit.PLLI2S.PLLI2SR = 2;
 		if(HAL_RCCEx_PeriphCLKConfig(&rccclkinit) != HAL_OK) {Error_Handler();}
 	}
 }
@@ -77,7 +75,8 @@ static void I2S3_freqUpdate(uint32_t AudioFreq)
 	hAudioI2S->Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
 	hAudioI2S->Init.Mode = I2S_MODE_MASTER_TX;
 	hAudioI2S->Init.Standard = I2S_STANDARD_PHILIPS;
-	/* Initialize the I2S peripheral with the structure above */
+
+	/* Reinitialize based on new audio frequency */
 	if(HAL_I2S_Init(hAudioI2S) != HAL_OK) {Error_Handler();}
 }
 
@@ -93,8 +92,6 @@ void audioI2S_setHandle(I2S_HandleTypeDef *pI2Shandle)
 /**
  * @brief Initialises I2S Audio settings
  * @param audioFreq - WAV file Audio sampling rate (44.1KHz, 48KHz, ...)
- * @param volume - CS43L22 Codec volume settings (0 - 100)
- * @retval state - true: Successfully, false: Failed
  */
 void audioI2S_init(uint32_t audioFreq)
 {

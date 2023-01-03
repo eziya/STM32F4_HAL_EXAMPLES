@@ -57,8 +57,8 @@
 //1. Mode Select Enum
 typedef enum
 {
-	CS43_MODE_I2S = 0,
-	CS43_MODE_ANALOG
+  CS43_MODE_I2S = 0,
+  CS43_MODE_ANALOG
 } CS43_MODE;
 
 //(3): List of the functions prototypes

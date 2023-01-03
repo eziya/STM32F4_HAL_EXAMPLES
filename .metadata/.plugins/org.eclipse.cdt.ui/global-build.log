@@ -1,4 +1,4 @@
-00:22:12 **** Clean-only build of configuration Debug for project STM32F4_HAL_I2S ****
+19:36:34 **** Clean-only build of configuration Debug for project STM32F4_HAL_I2S ****
 make -j12 clean 
 rm -rf ./USB_HOST/Target/usbh_conf.d ./USB_HOST/Target/usbh_conf.o ./USB_HOST/Target/usbh_conf.su ./USB_HOST/Target/usbh_platform.d ./USB_HOST/Target/usbh_platform.o ./USB_HOST/Target/usbh_platform.su
 rm -rf ./USB_HOST/App/usb_host.d ./USB_HOST/App/usb_host.o ./USB_HOST/App/usb_host.su

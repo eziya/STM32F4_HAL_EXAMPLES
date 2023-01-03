@@ -7,7 +7,7 @@
 		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
 	</section>
 	<section name="TextSearchPage">
-		<item key="HISTORY_SIZE" value="8"/>
+		<item key="HISTORY_SIZE" value="11"/>
 		<item key="CASE_SENSITIVE" value="false"/>
 		<item key="REG_EX_SEARCH" value="false"/>
 		<item key="WHOLE_WORD" value="false"/>
@@ -20,7 +20,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="MY_CS43L22.h"/>
+			<item key="textPattern" value="I2S3_freqUpdate"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -32,7 +32,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="wavPlayer_reset"/>
+			<item key="textPattern" value="PLAYBACK_StateTypeDef"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -44,7 +44,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="APPLICATION_READY"/>
+			<item key="textPattern" value="audioI2S_changeBuffer"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -56,7 +56,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="PLAYER_CONTROL_Idle"/>
+			<item key="textPattern" value="wavPlayer_reset"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -68,7 +68,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="PLAYER_CONTROL_e"/>
+			<item key="textPattern" value="APPLICATION_READY"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -80,7 +80,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="OTG_FS_PowerSwitchOn_GPIO_Port"/>
+			<item key="textPattern" value="MY_CS43L22.h"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -92,7 +92,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="VECTORTABLE_SIZE "/>
+			<item key="textPattern" value="PLAYER_CONTROL_Idle"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -101,6 +101,42 @@
 			</list>
 		</section>
 		<section name="HISTORY7">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="PLAYER_CONTROL_e"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY8">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="OTG_FS_PowerSwitchOn_GPIO_Port"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY9">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="VECTORTABLE_SIZE "/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY10">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>

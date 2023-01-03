@@ -6,13 +6,13 @@
 	<item key="org.eclipse.cdt.uiformatter_page.white_space.c_view.inner" value="72"/>
 	<item key="org.eclipse.cdt.uiformatter_page.white_space_tab_page.node" value="0"/>
 	<item key="org.eclipse.cdt.uiformatter_page.line_wrapping_tab_page.last_category_index" value="1"/>
-	<item key="formatter_page.modify_dialog_tab_page.last_focus_index" value="1"/>
+	<item key="formatter_page.modify_dialog_tab_page.last_focus_index" value="3"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_width" value="1103"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_height" value="902"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x" value="477"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y" value="0"/>
 	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="../Middlewares/Audio"/>
-	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.last_focus" value="2"/>
+	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.last_focus" value="0"/>
 	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
 		<item key="DIALOG_WIDTH" value="398"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

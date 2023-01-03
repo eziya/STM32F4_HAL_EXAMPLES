@@ -26,8 +26,6 @@ void audioI2S_setHandle(I2S_HandleTypeDef *pI2Shandle);
 /**
  * @brief Initialises I2S Audio settings
  * @param audioFreq - WAV file Audio sampling rate (44.1KHz, 48KHz, ...)
- * @param volume - CS43L22 Codec volume settings (0 - 100)
- * @retval state - true: Successfully, false: Failed
  */
 void audioI2S_init(uint32_t audioFreq);
 

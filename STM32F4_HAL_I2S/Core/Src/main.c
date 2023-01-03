@@ -127,6 +127,7 @@ void HandlePlayBackFindFiles(void)
 
 void HandlePlayBackStart(void)
 {
+  wavPlayer_stop();
 	printf("Playing file: %s / %ld bps\r\n", wavFiles[currentFileIdx], wavHeaders[currentFileIdx].SampleRate);
 	wavPlayer_fileSelect(wavFiles[currentFileIdx]);
 	wavPlayer_play();
