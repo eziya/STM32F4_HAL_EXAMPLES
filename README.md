@@ -36,3 +36,4 @@ I've added new examples such as NOKIA5110, FIT0484 Motor, LM35DZ, HD44780, BME28
 28. SPI#ILI9341 TFT LCD Example (https://blog.naver.com/eziya76/221579262995)
 29. SPI#VS1053B MP3 Player (https://blog.naver.com/eziya76/221585207076)
 30. USB#Mass Storage (https://blog.naver.com/eziya76/221588382601)
+31. I2S Wav Player (https://blog.naver.com/eziya76/222974074152)
